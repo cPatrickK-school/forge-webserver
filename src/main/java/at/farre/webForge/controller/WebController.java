@@ -9,11 +9,12 @@ import at.farre.webForge.model.*;
 @RestController
 public class WebController {
     @Autowired
-    private LocalFiles lf;
+    private ForgeFileManager lf;
 
-    @RequestMapping(value = "/files", produces = MediaType.APPLICATION_JSON_VALUE)
-    public LocalFiles localFiles() {
+    @GetMapping(value = "/files", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ForgeFileManager localFiles() {
         lf.loadFiles();
         return lf;
     }
+
 }
